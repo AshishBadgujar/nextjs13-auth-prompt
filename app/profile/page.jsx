@@ -18,10 +18,6 @@ export default function page() {
         if (session?.user.id) fetchPosts()
     }, [session])
 
-    const handleEdit = (postId) => {
-        console.log("post=", postId)
-        router.push(`/update-prompt?id=${postId}`)
-    }
     const handleDelete = async (postId) => {
         const hasConfirmed = confirm("Are you sure want to delete?")
         if (hasConfirmed) {
@@ -38,10 +34,10 @@ export default function page() {
     }
     return (
         <Profile
+            user={session?.user}
             name="My"
             desc="Welcome to your profile"
             data={posts}
-            handleEdit={handleEdit}
             handleDelete={handleDelete}
         />
     )

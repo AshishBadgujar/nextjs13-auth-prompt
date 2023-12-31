@@ -7,9 +7,11 @@ import PromptCard from "./PromptCard"
 const PromptCardList = ({ data, handleTagClick, notFoundText }) => {
 
     return (
-        <div>
-            <p>{notFoundText}</p>
-            {data.map((post) => <PromptCard key={post._id} post={post} handleTagClick={handleTagClick} />)}
+        <div className="w-full p-5">
+            <p className="text-center">{notFoundText}</p>
+            <div className="flex justify-center items-center">
+                {data.map((post) => <PromptCard key={post._id} post={post} handleTagClick={handleTagClick} />)}
+            </div>
         </div>
     )
 }
@@ -61,8 +63,8 @@ export default function Feed() {
     }
     return (
         <section>
-            <form>
-                <input type="text" value={searchText} placeholder="#tag/@user/searchtext" onChange={(e) => setSearchText(e.target.value)} />
+            <form className="text-center mt-5">
+                <input className="w-2/5" type="text" value={searchText} placeholder="#tag/@user/searchtext" onChange={(e) => setSearchText(e.target.value)} />
             </form>
 
             <PromptCardList
@@ -70,6 +72,7 @@ export default function Feed() {
                 handleTagClick={handleTagClick}
                 notFoundText={notFoundText}
             />
+
         </section>
     )
 }

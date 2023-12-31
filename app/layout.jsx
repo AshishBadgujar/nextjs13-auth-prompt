@@ -12,9 +12,9 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body>
         <Provider>
-          <main >
+          <main className='container mx-auto'>
             <Nav />
-            <hr />
+
             {children}
           </main>
         </Provider>

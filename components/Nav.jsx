@@ -17,22 +17,22 @@ export default function Nav() {
         setAuthProviders()
     }, [])
     return (
-        <nav >
-            <Link href='/' >
-                <p >Promptopia</p>
+        <nav className="p-4 flex items-center justify-between">
+            <Link href='/'>
+                <p className="text-lg font-bold">Promptopia</p>
             </Link>
 
-            <div >
+            <div>
                 {session?.user ? (
-                    <div >
-                        <Link href='/create-prompt' >Create Post</Link>
-                        <button type="button" onClick={signOut} >Sign Out</button>
-                        <Link href='/profile'>
+                    <div className="flex items-center">
+                        <Link className="mx-5 outline_btn" href='/create-prompt' >Create Post</Link>
+                        <button className="mr-5" type="button" onClick={signOut} >Sign Out</button>
+                        <Link href='/profile' >
                             <Image
                                 src={session?.user.image}
                                 width={37}
                                 height={37}
-
+                                className="rounded-full"
                                 alt="profile"
                             />
                         </Link>
